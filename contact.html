@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - SeniorSitters</title>
+  <meta name="description" content="Contact SeniorSitters for non-medical companion care in Greater Cleveland. We're here to help families find the right care.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="container">
+      <nav class="site-header">
+        <a href="index.html" class="brand">
+          <span class="brand-text">SeniorSitters</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="eligibility.html" class="nav-link">Check Eligibility</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+        <div class="header-actions">
+          <a href="tel:2160000000" class="nav-phone">(216) 000-0000</a>
+          <a href="eligibility.html" class="nav-cta">Check Eligibility</a>
+          <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p class="lead">We'd love to hear from you. Whether you have questions about our services or want to discuss how we can help your family, we're here to help.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <h2>Send Us a Message</h2>
+          <form id="contactForm">
+            <!-- Name -->
+            <div class="form-field">
+              <label class="required-label">Your Name <span class="required">*</span></label>
+              <input type="text" name="name" id="name" placeholder="Your name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-field">
+              <label class="required-label">Email Address <span class="required">*</span></label>
+              <input type="email" name="email" id="email" placeholder="your@email.com" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-field">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" id="phone" placeholder="(216) 555-1234">
+            </div>
+
+            <!-- Service Interested In -->
+            <div class="form-field">
+              <label>Service Interested In</label>
+              <select name="service" id="service">
+                <option value="">Select a service</option>
+                <option value="companion">Companion Visits</option>
+                <option value="meal">Meal Support</option>
+                <option value="errands">Errands & Outings</option>
+                <option value="respite">Respite Care</option>
+                <option value="checkins">Wellness Check-Ins</option>
+                <option value="multiple">Multiple Services</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="form-field">
+              <label class="required-label">Message <span class="required">*</span></label>
+              <textarea name="message" id="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+              <div class="char-counter"><span id="messageCount">0</span>/500 characters</div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </form>
+
+          <!-- Success Message (hidden by default) -->
+          <div id="formSuccess" class="form-success" style="display: none;">
+            <h3>✓ Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="contact-info">
+          <div class="info-card">
+            <h4>📞 Phone</h4>
+            <p><a href="tel:2160000000">(216) 000-0000</a></p>
+            <p>Monday - Friday, 9am - 5pm</p>
+          </div>
+          <div class="info-card">
+            <h4>✉️ Email</h4>
+            <p><a href="mailto:info@seniorsitters.com">info@seniorsitters.com</a></p>
+            <p>We respond within 24 hours</p>
+          </div>
+          <div class="info-card">
+            <h4>📍 Service Area</h4>
+            <p>Greater Cleveland and surrounding areas</p>
+            <p>Including eastern suburbs and surrounding counties</p>
+          </div>
+          <div class="info-card">
+            <h4>🕐 Hours</h4>
+            <p>Monday - Friday: 9am - 5pm</p>
+            <p>Saturday - Sunday: By appointment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Family-Friendly Message -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-intro">
+        <h2>We're Here to Help</h2>
+        <p class="section-subtext">Finding the right care for a loved one is an important decision. We're here to answer your questions and help you find the best support for your family.</p>
+      </div>
+      <div class="features-grid" style="max-width: 900px; margin: 0 auto;">
+        <div class="feature-card">
+          <h3>No Obligation</h3>
+          <p>There's no pressure when you reach out. We're happy to answer questions and provide information at no cost to you.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Personalized Guidance</h3>
+          <p>Every family is unique. We'll take the time to understand your situation and help you find the right fit.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Transparent Communication</h3>
+          <p>We believe in honest, clear communication. We'll always be upfront about our services and how we can help.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">SeniorSitters</div>
+          <p>Providing warm, non-medical companion care that helps seniors maintain independence and dignity while giving families peace of mind.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="eligibility.html">Check Eligibility</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Companion Visits</a></li>
+            <li><a href="services.html">Meal Support</a></li>
+            <li><a href="services.html">Errands & Outings</a></li>
+            <li><a href="services.html">Respite Care</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>Phone: (216) 000-0000</p>
+          <p>Email: info@seniorsitters.com</p>
+          <p>Service Area: Greater Cleveland and surrounding areas</p>
+          <p>Hours: Monday - Friday, 9am - 5pm</p>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <strong>Important Disclaimer:</strong> SeniorSitters provides non-medical companion care only. We do not provide nursing, medical treatment, medication administration, or emergency medical services. For medical emergencies, please call 911.
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SeniorSitters. Operated under Rukn Analytics LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
