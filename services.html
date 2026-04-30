@@ -26,8 +26,8 @@
           <a href="about.html" class="nav-link">About</a>
         </div>
         <div class="header-actions">
-          <a href="eligibility.html" class="nav-cta">Check Eligibility</a>
-          <a href="contact.html" class="nav-cta">Contact Us</a>
+          <a href="eligibility.html" class="btn btn-primary">Check Eligibility</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span>
             <span></span>
@@ -39,95 +39,187 @@
   </header>
 
   <!-- Page Hero -->
-  <section class="section" style="background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-soft) 100%); padding-bottom: 40px;">
+  <section class="section" style="background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-soft) 100%); padding: 60px 0 50px;">
     <div class="container">
       <div class="section-intro">
         <h1>Our Services</h1>
-        <p class="section-subtext">We provide warm, non-medical companion care designed to enhance quality of life while respecting seniors' independence and dignity.</p>
+        <p class="section-subtext">We provide warm, non-medical companion care that supports independence, dignity, and peace of mind for families.</p>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="section-services">
+  <section class="section" style="background: var(--color-bg);">
     <div class="container">
-      <div class="services-layout">
-        <!-- Service Card 1 -->
-        <div class="service-card">
-          <div class="service-icon">💬</div>
-          <h3>Companion Visits</h3>
-          <p>Regular friendly visits providing meaningful social interaction, conversation, and companionship. We engage in activities like playing games, reading together, reminiscing, or simply sharing a cup of tea. Our visits are designed to combat loneliness and provide the social connection that is so important for well-being.</p>
+      <div class="section-intro">
+        <h2>Simple Support Packages for Peace of Mind</h2>
+        <p class="section-subtext">Choose the level of support that fits your loved one. We confirm all details before any payment is made.</p>
+      </div>
+
+      <div class="packages-grid">
+        <!-- Package 1: Companion Visit -->
+        <div class="package-card">
+          <div class="package-icon">💬</div>
+          <h3>Companion Visit</h3>
+          <div class="package-price">Starting at $30/hr</div>
+          <div class="package-minimum">2 hour minimum</div>
+          <p>Friendly conversation and social connection to brighten each day.</p>
+          <ul class="package-list">
+            <li>Friendly conversation, games, reading</li>
+            <li>Walks and light tidying</li>
+            <li>Meal & hydration reminders</li>
+            <li>Medication reminders only</li>
+            <li>Family updates after each visit</li>
+          </ul>
+          <a href="contact.html?package=Companion%20Visit" class="btn btn-primary">Request Companion Visit</a>
         </div>
 
-        <!-- Service Card 2 -->
-        <div class="service-card">
-          <div class="service-icon">🍽️</div>
-          <h3>Meal Reminders & Light Meal Support</h3>
-          <p>Gentle reminders for meals and hydration, with light assistance in preparing simple meals or snacks. We can also help with meal planning and ensure seniors have nutritious food available. Our sitters can prepare light meals, warm up leftovers, or assist with meal setup.</p>
+        <!-- Package 2: Daily Support -->
+        <div class="package-card">
+          <div class="package-icon">🍽️</div>
+          <h3>Daily Support</h3>
+          <div class="package-price">Starting at $34/hr</div>
+          <div class="package-minimum">3 hour minimum</div>
+          <p>Extended companionship with light daily assistance.</p>
+          <ul class="package-list">
+            <li>Everything in Companion Visit</li>
+            <li>Light meal prep</li>
+            <li>Errands & grocery help</li>
+            <li>Laundry folding</li>
+            <li>Routine support</li>
+            <li>Appointment accompaniment</li>
+          </ul>
+          <a href="contact.html?package=Daily%20Support" class="btn btn-primary">Request Daily Support</a>
         </div>
 
-        <!-- Service Card 3 -->
-        <div class="service-card">
-          <div class="service-icon">🛒</div>
-          <h3>Errands & Outings</h3>
-          <p>Assistance with grocery shopping, picking up prescriptions, banking, and other routine errands. We can also accompany seniors on outings to appointments, social events, religious services, or community activities. Safe transportation and accompaniment is a key part of our service.</p>
+        <!-- Package 3: Family Relief / Respite -->
+        <div class="package-card">
+          <div class="package-icon">💆</div>
+          <h3>Family Relief / Respite</h3>
+          <div class="package-price">Starting at $38/hr</div>
+          <div class="package-minimum">4 hour minimum</div>
+          <p>Extended supervision and peace of mind for caregivers.</p>
+          <ul class="package-list">
+            <li>Supervision & companionship</li>
+            <li>Safety check-ins</li>
+            <li>Engaging activities</li>
+            <li>Light household help</li>
+            <li>Detailed family notes after each visit</li>
+          </ul>
+          <a href="contact.html?package=Family%20Relief%20Respite" class="btn btn-primary">Request Respite Support</a>
         </div>
 
-        <!-- Service Card 4 -->
-        <div class="service-card">
-          <div class="service-icon">🏥</div>
-          <h3>Appointment Companionship</h3>
-          <p>Accompanying seniors to medical appointments, dental visits, or other healthcare appointments. We can help by taking notes, providing transportation, and ensuring the senior feels comfortable and supported during their visit. We communicate with family members about appointment outcomes.</p>
+        <!-- Package 4: Outing & Appointment Companion -->
+        <div class="package-card">
+          <div class="package-icon">🚗</div>
+          <h3>Outing & Appointment Companion</h3>
+          <div class="package-price">Starting at $35/hr + travel fee</div>
+          <div class="package-minimum">2 hour minimum</div>
+          <p>Reliable accompaniment for appointments and outings.</p>
+          <ul class="package-list">
+            <li>Doctor appointments</li>
+            <li>Shopping trips</li>
+            <li>Religious services</li>
+            <li>Errands & waiting with client</li>
+            <li>Ride-along support</li>
+            <li>Notes for family</li>
+          </ul>
+          <a href="contact.html?package=Outing%20Appointment%20Companion" class="btn btn-primary">Request Outing Support</a>
         </div>
 
-        <!-- Service Card 5 -->
-        <div class="service-card">
-          <div class="service-icon">🏠</div>
-          <h3>Light Household Help</h3>
-          <p>Assistance with light housekeeping tasks such as organizing, light cleaning, laundry assistance, and maintaining a safe living environment. We help with tasks that support independence while ensuring the home remains safe and comfortable.</p>
+        <!-- Package 5: Weekly Peace of Mind Plan (Featured) -->
+        <div class="package-card featured-package">
+          <div class="package-icon">📅</div>
+          <h3>Weekly Peace of Mind Plan</h3>
+          <div class="package-price">Custom weekly plan</div>
+          <div class="package-minimum">Best for families needing consistent weekly visits</div>
+          <p>Recurring support with a trusted companion.</p>
+          <ul class="package-list">
+            <li>Recurring schedule</li>
+            <li>Priority booking</li>
+            <li>Same sitter when possible</li>
+            <li>Customized routine</li>
+            <li>Regular family updates</li>
+          </ul>
+          <a href="contact.html?package=Weekly%20Peace%20of%20Mind%20Plan" class="btn btn-primary">Build My Weekly Plan</a>
         </div>
+      </div>
 
-        <!-- Service Card 6 -->
-        <div class="service-card">
-          <div class="service-icon">💆</div>
-          <h3>Respite Support for Family Caregivers</h3>
-          <p>Providing breaks for family caregivers so they can rest, run errands, or take time for themselves. Whether you need a few hours or a regular schedule, we step in to provide quality companionship while you take care of your own well-being.</p>
+      <div class="package-note">
+        <p>Pricing is confirmed before any payment is collected.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-intro">
+        <h2>How It Works</h2>
+        <p class="section-subtext">Getting started is simple. Here's what to expect.</p>
+      </div>
+      <div class="how-it-works-grid">
+        <div class="how-step">
+          <div class="step-number">1</div>
+          <h3>Choose a Package</h3>
+          <p>Select the support option that best fits your loved one's needs.</p>
         </div>
-
-        <!-- Service Card 7 -->
-        <div class="service-card">
-          <div class="service-icon">📞</div>
-          <h3>Wellness Check-Ins</h3>
-          <p>Regular phone or in-person check-ins to ensure seniors are doing well. We verify their well-being, check that they have what they need, and provide friendly conversation. These check-ins give families peace of mind when they cannot be there in person.</p>
+        <div class="how-step">
+          <div class="step-number">2</div>
+          <h3>Fill Out the Intake Form</h3>
+          <p>Share schedule, location, mobility notes, and care needs.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-number">3</div>
+          <h3>We Confirm the Schedule & Rate</h3>
+          <p>We review availability, travel needs, minimum hours, and final pricing.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-number">4</div>
+          <h3>Pay Securely Through Stripe</h3>
+          <p>After approval, we send a Stripe invoice. Payment is collected only after confirmation.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What We Don't Provide -->
-  <section class="section" style="background: var(--color-surface);">
+  <!-- Not Sure Where to Start -->
+  <section class="section" style="background: var(--color-bg);">
     <div class="container">
       <div class="section-intro">
-        <h2>What We Don't Provide</h2>
-        <p class="section-subtext">It's important to understand the scope of our non-medical companion care services.</p>
+        <h2>Not sure where to start?</h2>
+        <p class="section-subtext">Start with a simple introductory visit to see if we're the right fit for your family.</p>
       </div>
-      <div class="features-grid" style="max-width: 900px; margin: 0 auto;">
-        <div class="feature-card" style="border-left: 4px solid var(--color-error);">
-          <h3>Medical Services</h3>
-          <p>We do not provide nursing, medical treatment, wound care, or any form of clinical medical assistance.</p>
-        </div>
-        <div class="feature-card" style="border-left: 4px solid var(--color-error);">
-          <h3>Medication Administration</h3>
-          <p>Our sitters do not administer medications, manage prescriptions, or provide medical monitoring.</p>
-        </div>
-        <div class="feature-card" style="border-left: 4px solid var(--color-error);">
-          <h3>Emergency Medical Services</h3>
-          <p>We are not a medical emergency service. For emergencies, please call 911 immediately.</p>
-        </div>
-        <div class="feature-card" style="border-left: 4px solid var(--color-error);">
-          <h3>Heavy Personal Care</h3>
-          <p>We do not provide assistance with bathing, toileting, or other intimate personal care tasks.</p>
-        </div>
+      <div class="starter-card">
+        <div class="starter-icon">🌱</div>
+        <h3>New Client Starter Visit</h3>
+        <div class="starter-subtitle">1–2 hour introductory visit</div>
+        <p>A first-time visit designed to build comfort, understand your loved one's needs, and ensure the right fit before ongoing care.</p>
+        <ul class="starter-list">
+          <li>Meet your sitter</li>
+          <li>Light companionship</li>
+          <li>Routine observation</li>
+          <li>Comfort & compatibility check</li>
+          <li>Personalized recommendations</li>
+        </ul>
+        <a href="contact.html?package=Starter%20Visit" class="btn btn-primary">Schedule Starter Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Scope -->
+  <section class="section" style="background: var(--color-surface-soft);">
+    <div class="container">
+      <div class="scope-container">
+        <h2>Service Scope</h2>
+        <p>SeniorSitters provides non-medical companionship and daily support designed to enhance quality of life.</p>
+        <ul class="scope-list">
+          <li>No medical or nursing services</li>
+          <li>No medication administration</li>
+          <li>No emergency medical care</li>
+          <li>No heavy personal care (bathing, lifting, toileting)</li>
+        </ul>
+        <p class="scope-closing">For families needing additional care, we're happy to help guide you to appropriate resources.</p>
       </div>
     </div>
   </section>
@@ -135,11 +227,11 @@
   <!-- CTA Section -->
   <section class="section-final-cta">
     <div class="container">
-      <h2>Find the Right Care for Your Family</h2>
-      <p>Let's discuss which services would best support your loved one's needs.</p>
+      <h2>Find the Right Support for Your Family</h2>
+      <p>We'll help you choose the right level of care and build a plan that works.</p>
       <div class="cta-buttons">
         <a href="eligibility.html" class="btn btn-primary">Check Eligibility</a>
-        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+        <a href="contact.html" class="btn btn-outline">Request Care</a>
       </div>
     </div>
   </section>
