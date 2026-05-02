@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Care - SeniorSitters</title>
+  <meta name="description" content="Request personalized companion care services from SeniorSitters. Tell us about your needs and we'll confirm the best plan for your family.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="page-wrapper">
+      <nav class="site-header">
+        <a href="index.html" class="brand">
+          <img src="assets/logos/logo.png" alt="SeniorSitters Logo" class="brand-logo">
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="find-care.html" class="nav-link">Find the Right Care</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="about.html" class="nav-link">About</a>
+        </div>
+        <div class="header-actions">
+          <a href="request-care.html" class="btn btn-primary">Request Care</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+          <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Request Care Hero -->
+  <section class="section section-hero" style="background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-soft) 100%);">
+    <div class="container">
+      <div class="section-intro intro-center" style="max-width: 600px; margin: 0 auto;">
+        <h1 style="font-size: 2rem; margin-bottom: 12px;">Request Care</h1>
+        <p style="color: var(--color-muted); font-size: 1rem;">Tell us a bit about your needs and we’ll confirm the best plan for your family.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <h2>Request Care</h2>
+          <form id="contactForm">
+            <!-- Full Name -->
+            <div class="form-field">
+              <label class="required-label">Full Name <span class="required">*</span></label>
+              <input type="text" name="name" id="name" placeholder="Your full name" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-field">
+              <label class="required-label">Phone <span class="required">*</span></label>
+              <input type="tel" name="phone" id="phone" placeholder="(216) 555-1234" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-field">
+              <label class="required-label">Email Address <span class="required">*</span></label>
+              <input type="email" name="email" id="email" placeholder="your@email.com" required>
+            </div>
+
+            <!-- Who is care for -->
+            <div class="form-field">
+              <label class="required-label">Who is care for <span class="required">*</span></label>
+              <input type="text" name="careFor" id="careFor" placeholder="e.g., My mother, My father, Myself" required>
+            </div>
+
+            <!-- City / ZIP -->
+            <div class="form-field">
+              <label class="required-label">City / ZIP <span class="required">*</span></label>
+              <input type="text" name="location" id="location" placeholder="e.g., Cleveland, OH 44101" required>
+            </div>
+
+            <!-- Preferred schedule -->
+            <div class="form-field">
+              <label class="required-label">Preferred Schedule <span class="required">*</span></label>
+              <div class="schedule-fields">
+                <select name="days" id="days" required>
+                  <option value="">Select days</option>
+                  <option value="weekdays">Weekdays (Mon-Fri)</option>
+                  <option value="weekends">Weekends (Sat-Sun)</option>
+                  <option value="daily">Daily</option>
+                  <option value="custom">Custom schedule</option>
+                </select>
+                <input type="text" name="time" id="time" placeholder="e.g., Mornings 9-11am, Afternoons 2-4pm" required>
+              </div>
+            </div>
+
+            <!-- Type of support needed -->
+            <div class="form-field">
+              <label class="required-label">Type of Support Needed <span class="required">*</span></label>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="support[]" value="companion"> Companion Visits
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="support[]" value="meal"> Daily Support
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="support[]" value="errands"> Outings & Appointments
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="support[]" value="respite"> Family Relief/Respite Care
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="support[]" value="checkins"> Custom Weekly Plan
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="support[]" value="other"> Other
+                </label>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-field">
+              <label>Notes</label>
+              <textarea name="notes" id="notes" rows="4" placeholder="Any additional details about your care needs..."></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Request Care</button>
+            </div>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" style="display: none;">
+            <h3>Thank You!</h3>
+            <p>We've received your request and will be in touch within 24 hours to discuss your care needs and confirm the best plan for your family.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-card">
+          <h3>Get in Touch</h3>
+          <p>Questions about our services? We're here to help.</p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <h4>Call Us</h4>
+              <p><a href="tel:+12165551234">(216) 555-1234</a></p>
+            </div>
+            <div class="contact-method">
+              <h4>Email Us</h4>
+              <p><a href="mailto:info@seniorsittersco.com">info@seniorsittersco.com</a></p>
+            </div>
+            <div class="contact-method">
+              <h4>Visit Us</h4>
+              <p>Greater Cleveland Area</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">SeniorSitters</div>
+          <p>Providing warm, non-medical companion care that helps seniors maintain independence and dignity while giving families peace of mind.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="find-care.html">Find the Right Care</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Companion Visits</a></li>
+            <li><a href="services.html">Meal Support</a></li>
+            <li><a href="services.html">Errands & Outings</a></li>
+            <li><a href="services.html">Respite Care</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>Phone: (216) 000-0000</p>
+          <p>Email: info@seniorsitters.com</p>
+          <p>Service Area: Greater Cleveland and surrounding areas</p>
+          <p>Hours: Monday - Friday, 9am - 5pm</p>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <strong>Important Disclaimer:</strong> SeniorSitters provides non-medical companion care only. We do not provide nursing, medical treatment, medication administration, or emergency medical services. For medical emergencies, please call 911.
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SeniorSitters. Operated under Rukn Analytics LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -21,12 +21,12 @@
         <div class="nav-links" id="navLinks">
           <a href="index.html" class="nav-link">Home</a>
           <a href="services.html" class="nav-link active">Services</a>
-          <a href="eligibility.html" class="nav-link">Check Eligibility</a>
+          <a href="find-care.html" class="nav-link">Find the Right Care</a>
           <a href="careers.html" class="nav-link">Careers</a>
           <a href="about.html" class="nav-link">About</a>
         </div>
         <div class="header-actions">
-          <a href="eligibility.html" class="btn btn-primary">Check Eligibility</a>
+          <a href="request-care.html" class="btn btn-primary">Request Care</a>
           <a href="contact.html" class="btn btn-secondary">Contact Us</a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span>
@@ -38,115 +38,165 @@
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="section" style="background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-soft) 100%); padding: 60px 0 50px;">
+  <!-- Page Hero - Services -->
+  <section class="section section-hero" style="background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-soft) 100%);">
     <div class="container">
-      <div class="section-intro">
-        <h1>Our Services</h1>
-        <p class="section-subtext">We provide warm, non-medical companion care that supports independence, dignity, and peace of mind for families.</p>
+      <div class="section-intro intro-center" style="max-width: 600px; margin: 0 auto;">
+        <h1 style="font-size: 2rem; margin-bottom: 12px;">Simple Support Packages</h1>
+        <p style="color: var(--color-muted); font-size: 1rem;">Choose the level of support that fits your loved one.</p>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="section" style="background: var(--color-bg);">
+  <section class="section section-sm" style="background: var(--color-bg);">
     <div class="container">
-      <div class="section-intro">
-        <h2>Simple Support Packages for Peace of Mind</h2>
-        <p class="section-subtext">Choose the level of support that fits your loved one. We confirm all details before any payment is made.</p>
-      </div>
-
       <div class="packages-grid">
-        <!-- Package 1: Companion Visit -->
-        <div class="package-card">
-          <div class="package-icon">💬</div>
-          <h3>Companion Visit</h3>
-          <div class="package-price">Starting at $30/hr</div>
-          <div class="package-minimum">2 hour minimum</div>
-          <p>Friendly conversation and social connection to brighten each day.</p>
-          <ul class="package-list">
-            <li>Friendly conversation, games, reading</li>
-            <li>Walks and light tidying</li>
-            <li>Meal & hydration reminders</li>
-            <li>Medication reminders only</li>
-            <li>Family updates after each visit</li>
-          </ul>
-          <a href="contact.html?package=Companion%20Visit" class="btn btn-primary">Request Companion Visit</a>
+        <div class="package-row package-row-3">
+          <!-- Package 1: Companion Visit -->
+          <div class="package-card">
+            <div class="package-icon">💬</div>
+            <h3>Companion Visit</h3>
+            <div class="package-price">Starting at $30/hr</div>
+            <div class="package-minimum">2 hour minimum</div>
+            <p>Friendly conversation and social connection to brighten each day.</p>
+            <ul class="package-list">
+              <li>Friendly conversation, games, reading</li>
+              <li>Walks and light tidying</li>
+              <li>Meal & hydration reminders</li>
+              <li>Medication reminders only</li>
+              <li>Family updates after each visit</li>
+            </ul>
+            <a href="request-care.html?package=Companion%20Visit" class="btn btn-primary">Request Companion Visit</a>
+          </div>
+
+          <!-- Package 2: Daily Support -->
+          <div class="package-card">
+            <div class="package-icon">🍽️</div>
+            <h3>Daily Support</h3>
+            <div class="package-price">Starting at $34/hr</div>
+            <div class="package-minimum">3 hour minimum</div>
+            <p>Extended companionship with light daily assistance.</p>
+            <ul class="package-list">
+              <li>Everything in Companion Visit</li>
+              <li>Light meal prep</li>
+              <li>Errands & grocery help</li>
+              <li>Laundry folding</li>
+              <li>Routine support</li>
+              <li>Appointment accompaniment</li>
+            </ul>
+            <a href="request-care.html?package=Daily%20Support" class="btn btn-primary">Request Daily Support</a>
+          </div>
+
+          <!-- Package 3: Family Relief / Respite -->
+          <div class="package-card">
+            <div class="package-icon">💆</div>
+            <h3>Family Relief / Respite</h3>
+            <div class="package-price">Starting at $38/hr</div>
+            <div class="package-minimum">4 hour minimum</div>
+            <p>Extended supervision and peace of mind for caregivers.</p>
+            <ul class="package-list">
+              <li>Supervision & companionship</li>
+              <li>Safety check-ins</li>
+              <li>Engaging activities</li>
+              <li>Light household help</li>
+              <li>Detailed family notes after each visit</li>
+            </ul>
+            <a href="request-care.html?package=Family%20Relief%20Respite" class="btn btn-primary">Request Respite Support</a>
+          </div>
         </div>
 
-        <!-- Package 2: Daily Support -->
-        <div class="package-card">
-          <div class="package-icon">🍽️</div>
-          <h3>Daily Support</h3>
-          <div class="package-price">Starting at $34/hr</div>
-          <div class="package-minimum">3 hour minimum</div>
-          <p>Extended companionship with light daily assistance.</p>
-          <ul class="package-list">
-            <li>Everything in Companion Visit</li>
-            <li>Light meal prep</li>
-            <li>Errands & grocery help</li>
-            <li>Laundry folding</li>
-            <li>Routine support</li>
-            <li>Appointment accompaniment</li>
-          </ul>
-          <a href="contact.html?package=Daily%20Support" class="btn btn-primary">Request Daily Support</a>
-        </div>
+        <div class="package-row package-row-2">
+          <!-- Package 4: Outing & Appointment Companion -->
+          <div class="package-card">
+            <div class="package-icon">🚗</div>
+            <h3>Outing & Appointment Companion</h3>
+            <div class="package-price">Starting at $35/hr + travel fee</div>
+            <div class="package-minimum">2 hour minimum</div>
+            <p>Reliable accompaniment for appointments and outings.</p>
+            <ul class="package-list">
+              <li>Doctor appointments</li>
+              <li>Shopping trips</li>
+              <li>Religious services</li>
+              <li>Errands & waiting with client</li>
+              <li>Ride-along support</li>
+              <li>Notes for family</li>
+            </ul>
+            <p class="travel-note">Travel fee based on distance (see Transportation section below).</p>
+            <a href="request-care.html?package=Outing%20Appointment%20Companion" class="btn btn-primary">Request Outing Support</a>
+          </div>
 
-        <!-- Package 3: Family Relief / Respite -->
-        <div class="package-card">
-          <div class="package-icon">💆</div>
-          <h3>Family Relief / Respite</h3>
-          <div class="package-price">Starting at $38/hr</div>
-          <div class="package-minimum">4 hour minimum</div>
-          <p>Extended supervision and peace of mind for caregivers.</p>
-          <ul class="package-list">
-            <li>Supervision & companionship</li>
-            <li>Safety check-ins</li>
-            <li>Engaging activities</li>
-            <li>Light household help</li>
-            <li>Detailed family notes after each visit</li>
-          </ul>
-          <a href="contact.html?package=Family%20Relief%20Respite" class="btn btn-primary">Request Respite Support</a>
-        </div>
-
-        <!-- Package 4: Outing & Appointment Companion -->
-        <div class="package-card">
-          <div class="package-icon">🚗</div>
-          <h3>Outing & Appointment Companion</h3>
-          <div class="package-price">Starting at $35/hr + travel fee</div>
-          <div class="package-minimum">2 hour minimum</div>
-          <p>Reliable accompaniment for appointments and outings.</p>
-          <ul class="package-list">
-            <li>Doctor appointments</li>
-            <li>Shopping trips</li>
-            <li>Religious services</li>
-            <li>Errands & waiting with client</li>
-            <li>Ride-along support</li>
-            <li>Notes for family</li>
-          </ul>
-          <a href="contact.html?package=Outing%20Appointment%20Companion" class="btn btn-primary">Request Outing Support</a>
-        </div>
-
-        <!-- Package 5: Weekly Peace of Mind Plan (Featured) -->
-        <div class="package-card featured-package">
-          <div class="package-icon">📅</div>
-          <h3>Weekly Peace of Mind Plan</h3>
-          <div class="package-price">Custom weekly plan</div>
-          <div class="package-minimum">Best for families needing consistent weekly visits</div>
-          <p>Recurring support with a trusted companion.</p>
-          <ul class="package-list">
-            <li>Recurring schedule</li>
-            <li>Priority booking</li>
-            <li>Same sitter when possible</li>
-            <li>Customized routine</li>
-            <li>Regular family updates</li>
-          </ul>
-          <a href="contact.html?package=Weekly%20Peace%20of%20Mind%20Plan" class="btn btn-primary">Build My Weekly Plan</a>
+          <!-- Package 5: Weekly Peace of Mind Plan (Featured) -->
+          <div class="package-card featured-package">
+            <div class="package-icon">📅</div>
+            <h3>Weekly Peace of Mind Plan</h3>
+            <div class="package-price">Custom weekly plan</div>
+            <div class="package-minimum">Best for families needing consistent weekly visits</div>
+            <p>Recurring support with a trusted companion.</p>
+            <ul class="package-list">
+              <li>Recurring schedule</li>
+              <li>Priority booking</li>
+              <li>Same sitter when possible</li>
+              <li>Customized routine</li>
+              <li>Regular family updates</li>
+            </ul>
+            <a href="request-care.html?package=Weekly%20Peace%20of%20Mind%20Plan" class="btn btn-primary">Build My Weekly Plan</a>
+          </div>
         </div>
       </div>
 
       <div class="package-note">
-        <p>Pricing is confirmed before any payment is collected.</p>
+        <p>A 2–4 hour minimum applies depending on service. Travel fees may apply for outings and are based on distance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transportation & Outing Details -->
+  <section class="section" style="background: var(--color-surface-soft);">
+    <div class="container">
+      <div class="transportation-container">
+        <h2>Transportation & Outing Details</h2>
+        <p class="transportation-intro">To keep pricing simple and transparent, SeniorSitters uses flat travel fees based on distance for all outings.</p>
+        
+        <div class="transportation-grid">
+          <div class="transportation-card">
+            <h3>Travel Fee (per visit)</h3>
+            <div class="fee-list">
+              <div class="fee-item">
+                <span class="fee-label">Local (0–10 miles):</span>
+                <span class="fee-amount">$20</span>
+              </div>
+              <div class="fee-item">
+                <span class="fee-label">Standard (10–20 miles):</span>
+                <span class="fee-amount">$30</span>
+              </div>
+              <div class="fee-item">
+                <span class="fee-label">Extended (20+ miles):</span>
+                <span class="fee-amount">$45+ (quoted in advance)</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="transportation-card">
+            <h3>What's Included</h3>
+            <ul class="included-list">
+              <li>Transportation coordination</li>
+              <li>Time accompanying the client</li>
+              <li>Wait time during appointments</li>
+              <li>Return trip support</li>
+            </ul>
+          </div>
+          
+          <div class="transportation-card">
+            <h3>Important Notes</h3>
+            <ul class="notes-list">
+              <li>All outings must be pre-approved</li>
+              <li>Travel fees apply only to client-related trips</li>
+              <li>Personal or additional stops are not covered</li>
+              <li>Mileage is internally tracked; clients are charged flat rates for simplicity</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -184,25 +234,28 @@
   </section>
 
   <!-- Not Sure Where to Start -->
-  <section class="section" style="background: var(--color-bg);">
+  <section class="section section-sm" style="background: var(--color-bg);">
     <div class="container">
-      <div class="section-intro">
-        <h2>Not sure where to start?</h2>
-        <p class="section-subtext">Start with a simple introductory visit to see if we're the right fit for your family.</p>
+      <div class="section-intro intro-center" style="margin-bottom: 32px;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Not sure where to start?</h2>
+        <p style="color: var(--color-muted);">Start with a simple introductory visit to see if we're the right fit.</p>
       </div>
-      <div class="starter-card">
-        <div class="starter-icon">🌱</div>
-        <h3>New Client Starter Visit</h3>
-        <div class="starter-subtitle">1–2 hour introductory visit</div>
-        <p>A first-time visit designed to build comfort, understand your loved one's needs, and ensure the right fit before ongoing care.</p>
-        <ul class="starter-list">
-          <li>Meet your sitter</li>
-          <li>Light companionship</li>
-          <li>Routine observation</li>
-          <li>Comfort & compatibility check</li>
-          <li>Personalized recommendations</li>
-        </ul>
-        <a href="contact.html?package=Starter%20Visit" class="btn btn-primary">Schedule Starter Visit</a>
+      <div class="packages-grid packages-grid-compact">
+        <div class="package-card compact-package">
+          <div class="package-icon">🌱</div>
+          <h3>New Client Starter Visit</h3>
+          <div class="package-price">1–2 hour introductory visit</div>
+          <div class="package-minimum">$40 one-time</div>
+          <p>A first-time visit designed to build comfort, understand your loved one's needs, and ensure the right fit.</p>
+          <ul class="package-list">
+            <li>Meet your sitter</li>
+            <li>Light companionship</li>
+            <li>Routine observation</li>
+            <li>Comfort & compatibility check</li>
+            <li>Personalized recommendations</li>
+          </ul>
+          <a href="request-care.html?package=Starter%20Visit" class="btn btn-primary">Schedule Starter Visit</a>
+        </div>
       </div>
     </div>
   </section>
@@ -225,13 +278,15 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="section-final-cta">
+  <section class="section section-sm" style="background: var(--color-bg);">
     <div class="container">
-      <h2>Find the Right Support for Your Family</h2>
-      <p>We'll help you choose the right level of care and build a plan that works.</p>
-      <div class="cta-buttons">
-        <a href="eligibility.html" class="btn btn-primary">Check Eligibility</a>
-        <a href="contact.html" class="btn btn-outline">Request Care</a>
+      <div class="cta-container intro-center" style="max-width: 600px; margin: 0 auto;">
+        <h1 style="font-size: 2rem; margin-bottom: 12px;">Find the Right Support for Your Family</h1>
+        <p style="color: var(--color-muted); font-size: 1rem;">We'll help you choose the right level of care and build a plan that works.</p>
+        <div class="cta-buttons">
+          <a href="find-care.html" class="btn btn-primary">Find the Right Care</a>
+          <a href="request-care.html" class="btn btn-outline">Request Care</a>
+        </div>
       </div>
     </div>
   </section>
@@ -249,7 +304,7 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="eligibility.html">Check Eligibility</a></li>
+            <li><a href="find-care.html">Find the Right Care</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>

@@ -94,6 +94,7 @@ function initForms() {
   // Contact Form
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
+    attachFieldListeners(contactForm);
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       if (validateForm(this)) {
@@ -105,6 +106,7 @@ function initForms() {
   // Eligibility Form
   const eligibilityForm = document.getElementById('eligibilityForm');
   if (eligibilityForm) {
+    attachFieldListeners(eligibilityForm);
     eligibilityForm.addEventListener('submit', function(e) {
       e.preventDefault();
       if (validateForm(this)) {
@@ -116,13 +118,45 @@ function initForms() {
   // Career Form
   const careerForm = document.getElementById('careerForm');
   if (careerForm) {
-    careerForm.addEventListener('submit', function(e) {
+    attachFieldListeners(careerForm);
+    careerForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      if (validateForm(this)) {
-        showSuccess(this);
+      if (!validateForm(this)) {
+        return;
+      }
+
+      const submitButton = this.querySelector("button[type='submit']");
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+      }
+
+      const formData = new FormData(this);
+      const resumeFile = document.getElementById("resume")?.files[0];
+      const data = Object.fromEntries(formData.entries());
+
+      if (resumeFile) {
+        const reader = new FileReader();
+        reader.onload = async function() {
+          data.resumeFileName = resumeFile.name;
+          data.resumeMimeType = resumeFile.type;
+          data.resumeBase64 = reader.result.split(",")[1];
+          await submitCareerApplication(data, submitButton, careerForm);
+        };
+        reader.readAsDataURL(resumeFile);
+      } else {
+        await submitCareerApplication(data, submitButton, careerForm);
       }
     });
   }
+}
+
+function attachFieldListeners(form) {
+  form.querySelectorAll('input, textarea, select').forEach(function(field) {
+    field.addEventListener('input', function() {
+      this.classList.remove('input-error');
+    });
+  });
 }
 
 /**
@@ -161,13 +195,6 @@ function validateForm(form) {
     }
   });
   
-  // Remove error class on input
-  form.querySelectorAll('input, textarea, select').forEach(function(field) {
-    field.addEventListener('input', function() {
-      this.classList.remove('input-error');
-    });
-  });
-  
   return isValid;
 }
 
@@ -185,6 +212,37 @@ function showSuccess(form) {
     
     // Scroll to success message
     successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+async function submitCareerApplication(data, submitButton, form) {
+  try {
+    const formData = new FormData();
+
+    // Add all fields
+    Object.keys(data).forEach(key => {
+      formData.append(key, data[key]);
+    });
+
+    await fetch("https://script.google.com/macros/s/AKfycbxqdNYBlU40FwYbR2f2-VOViEJmjpLpgB6cNH-mdKniOjN7c0od9B_v9W3h0X39x4MQ/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
+
+    if (form) {
+      showSuccess(form);
+    }
+
+  } catch (error) {
+    console.error("Submission error:", error);
+
+    alert("Something went wrong. Please try again or email careers@seniorsittersco.com.");
+
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit Application";
+    }
   }
 }
 
