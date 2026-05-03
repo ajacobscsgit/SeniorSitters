@@ -170,6 +170,34 @@ function validateForm(form) {
     // Reset previous error state
     field.classList.remove('input-error');
     
+    // Handle checkbox validation
+    if (field.type === 'checkbox') {
+      const checkboxContainer = field.closest('.form-field-checkbox');
+      if (!field.checked) {
+        field.classList.add('input-error');
+        if (checkboxContainer) {
+          checkboxContainer.classList.add('has-error');
+          // Add error message if not already present
+          if (!checkboxContainer.querySelector('.checkbox-error-text')) {
+            const errorMsg = document.createElement('span');
+            errorMsg.className = 'checkbox-error-text';
+            errorMsg.textContent = 'You must agree to the Terms & Conditions and Privacy Policy to proceed.';
+            checkboxContainer.appendChild(errorMsg);
+          }
+        }
+        isValid = false;
+      } else {
+        if (checkboxContainer) {
+          checkboxContainer.classList.remove('has-error');
+          const errorMsg = checkboxContainer.querySelector('.checkbox-error-text');
+          if (errorMsg) {
+            errorMsg.remove();
+          }
+        }
+      }
+      return;
+    }
+    
     // Check if empty
     if (!field.value.trim()) {
       field.classList.add('input-error');
@@ -194,6 +222,24 @@ function validateForm(form) {
       }
     }
   });
+  
+  // Add live validation for checkbox
+  const agreeCheckbox = form.querySelector('input[name="agreeToTerms"]');
+  if (agreeCheckbox) {
+    agreeCheckbox.addEventListener('change', function() {
+      const checkboxContainer = this.closest('.form-field-checkbox');
+      if (this.checked) {
+        this.classList.remove('input-error');
+        if (checkboxContainer) {
+          checkboxContainer.classList.remove('has-error');
+          const errorMsg = checkboxContainer.querySelector('.checkbox-error-text');
+          if (errorMsg) {
+            errorMsg.remove();
+          }
+        }
+      }
+    });
+  }
   
   return isValid;
 }
@@ -261,3 +307,163 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     }
   });
 });
+// Request Care Form
+// Request Care Form
+const form = document.getElementById("requestCareForm");
+
+document.querySelectorAll("input[name='level']").forEach((checkbox) => {
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      document.querySelectorAll("input[name='level']").forEach(cb => {
+        if (cb !== this) cb.checked = false;
+      });
+    }
+  });
+});
+
+if (form) {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById("requestSubmitBtn");
+
+    // Agreement check
+    const agree = document.getElementById("agreeToTerms");
+    if (!agree.checked) {
+      alert("You must agree to the Terms & Privacy Policy.");
+      return;
+    }
+
+    // Support types
+    const supportTypes = Array.from(
+      document.querySelectorAll("input[name='support[]']:checked")
+    ).map(el => el.value);
+
+    if (supportTypes.length === 0) {
+      alert("Please select at least one type of support.");
+      return;
+    }
+
+    // Level of care
+    const levels = Array.from(
+      document.querySelectorAll("input[name='level']:checked")
+    ).map(el => el.value);
+
+    if (levels.length === 0) {
+      alert("Please select a level of support.");
+      return;
+    }
+
+    // Loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Requesting...";
+    }
+
+    const data = new FormData();
+
+    data.append("name", document.getElementById("name").value);
+    data.append("phone", document.getElementById("phone").value);
+    data.append("email", document.getElementById("email").value);
+    data.append("careFor", document.getElementById("careFor").value);
+    data.append("cityZip", document.getElementById("location").value);
+
+    const days = document.getElementById("days").value;
+    const time = document.getElementById("time").value;
+    data.append("schedule", `${days} - ${time}`);
+
+    data.append("supportType", supportTypes.join(", "));
+    data.append("levelOfCare", levels.join(", "));
+    data.append("notes", document.getElementById("notes").value);
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbxZVW6aVvPIHrl1qqzNExa3liFEs7xsmvbWkDgq_GU5zsAjpUFzr3SWP0_Q63av-G1p/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: data
+      });
+
+      form.reset();
+      showSuccess(form);
+
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Something went wrong. Please try again.");
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Request Care";
+      }
+    }
+  });
+}
+
+// Contact Form
+// Contact Form
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById("contactSubmitBtn");
+
+    // Agreement check
+    const agree = document.getElementById("agreeToTerms");
+    if (!agree.checked) {
+      alert("You must agree to the Terms & Conditions and Privacy Policy.");
+      return;
+    }
+
+    // Get values (match your HTML exactly) :contentReference[oaicite:0]{index=0}
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // 🔄 Loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+    }
+
+    const data = new FormData();
+    data.append("name", name);
+    data.append("email", email);
+    data.append("phone", phone);
+    data.append("message", message);
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwUzOH8N9YDhSLIUf_AVUvBtDe5ARAndTBu0TQ5wMxpgMSAkPdEp9Sjz41F0W8kuedw/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: data
+      });
+
+      // Reset form
+      contactForm.reset();
+
+      // Show success message (your built-in one)
+      const successDiv = document.getElementById("formSuccess");
+      contactForm.style.display = "none";
+      if (successDiv) {
+        successDiv.style.display = "block";
+        successDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert("Something went wrong. Please try again.");
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      }
+    }
+  });
+}

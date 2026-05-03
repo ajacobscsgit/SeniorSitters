@@ -55,7 +55,7 @@
         <!-- Contact Form -->
         <div class="contact-form-card">
           <h2>Request Care</h2>
-          <form id="contactForm">
+          <form id="requestCareForm">
             <!-- Full Name -->
             <div class="form-field">
               <label class="required-label">Full Name <span class="required">*</span></label>
@@ -126,15 +126,47 @@
               </div>
             </div>
 
+            <!-- Level of support needed -->
+            <div class="form-field">
+              <label class="required-label">
+                Level of Support Needed (select one) <span class="required">*</span>
+              </label>
+
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="level" value="Light support">
+                  <span>Light support (companionship, meal prep, errands)</span>
+                </label>
+
+                <label class="checkbox-label">
+                  <input type="checkbox" name="level" value="Moderate support">
+                  <span>Moderate support (daily activities, mobility)</span>
+                </label>
+
+                <label class="checkbox-label">
+                  <input type="checkbox" name="level" value="Extensive support">
+                  <span>Extensive support (non-medical hands-on care, medication reminders)</span>
+                </label>
+              </div>
+            </div>
+
             <!-- Notes -->
             <div class="form-field">
               <label>Notes</label>
               <textarea name="notes" id="notes" rows="4" placeholder="Any additional details about your care needs..."></textarea>
             </div>
 
+            <!-- Legal Agreement Checkbox -->
+            <div class="form-field form-field-checkbox">
+              <label class="checkbox-agreement">
+                <input type="checkbox" name="agreeToTerms" id="agreeToTerms" required>
+                <span>I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a> <span class="required">*</span></span>
+              </label>
+            </div>
+
             <!-- Submit -->
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Request Care</button>
+              <button type="submit" id="requestSubmitBtn" class="btn btn-primary">Request Care</button>
             </div>
           </form>
 
@@ -146,21 +178,24 @@
         </div>
 
         <!-- Contact Info -->
-        <div class="contact-info-card">
-          <h3>Get in Touch</h3>
+        <div class="contact-info">
+          <div class="info-card">
+          <h4>Get in Touch</h4>
           <p>Questions about our services? We're here to help.</p>
-          <div class="contact-methods">
-            <div class="contact-method">
-              <h4>Call Us</h4>
-              <p><a href="tel:+12165551234">(216) 555-1234</a></p>
+          </div>
+            <div class="info-card">
+              <h4>📞 Call Us</h4>
+              <p><a href="tel:+14402909753">(440) 290-9753</a></p>
             </div>
-            <div class="contact-method">
-              <h4>Email Us</h4>
-              <p><a href="mailto:info@seniorsittersco.com">info@seniorsittersco.com</a></p>
+            <div class="info-card">
+              <h4>📧 Email Us</h4>
+              <p><a href="mailto:care@seniorsittersco.com">care@seniorsittersco.com</a></p>
+              <p> We respond within 24 hours.</p>
             </div>
-            <div class="contact-method">
-              <h4>Visit Us</h4>
-              <p>Greater Cleveland Area</p>
+            <div class="info-card">
+              <h4>📍Visit Us</h4>
+              <p>Greater Cleveland and surrounding areas</p>
+              <p>Including eastern suburbs and surrounding counties</p>
             </div>
           </div>
         </div>
@@ -184,6 +219,7 @@
             <li><a href="find-care.html">Find the Right Care</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="about.html">About</a></li>
+            <li><a href="request-care.html">Request Care</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -198,14 +234,22 @@
         </div>
         <div class="footer-section">
           <h4>Contact Info</h4>
-          <p>Phone: (216) 000-0000</p>
-          <p>Email: info@seniorsitters.com</p>
+          <p>Phone: (440) 290-9753</p>
+          <p>Email: care@seniorsittersco.com</p>
           <p>Service Area: Greater Cleveland and surrounding areas</p>
-          <p>Hours: Monday - Friday, 9am - 5pm</p>
+          <p>Office Hours: Monday - Friday, 9am - 5pm</p>
         </div>
       </div>
       <div class="footer-disclaimer">
         <strong>Important Disclaimer:</strong> SeniorSitters provides non-medical companion care only. We do not provide nursing, medical treatment, medication administration, or emergency medical services. For medical emergencies, please call 911.
+      </div>
+      <div class="footer-trust-line">
+        Providing non-medical companion care in Greater Cleveland
+      </div>
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="footer-legal-divider">|</span>
+        <a href="terms.html">Terms & Conditions</a>
       </div>
       <div class="footer-bottom">
         <p>© 2026 SeniorSitters. Operated under Rukn Analytics LLC. All rights reserved.</p>
