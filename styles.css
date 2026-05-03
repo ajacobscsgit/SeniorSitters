@@ -5573,3 +5573,76 @@ body.no-scroll .site-footer {
     font-size: 1.6rem;
   }
 }
+@media (max-width: 768px) {
+  .header-shell {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #fffdf8;
+  }
+
+  .site-header {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand-logo {
+    max-height: 46px;
+    width: auto;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .mobile-nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: #1e293b;
+    border-radius: 999px;
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    background: #fffdf8;
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px 14px;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-actions .btn {
+    display: none;
+  }
+}
