@@ -252,14 +252,6 @@ button, input, select, textarea {
   gap: 5px;
 }
 
-.mobile-nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--color-navy);
-  transition: 0.3s;
-}
-
 /* =========================
    HERO SECTION
    ========================= */
@@ -463,14 +455,7 @@ button, input, select, textarea {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-  }
 
-  .mobile-nav-toggle span {
-    width: 20px;
-    height: 2px;
-    background: var(--color-navy);
-    border-radius: 999px;
-    display: block;
   }
 
   .hero-video-inner {
@@ -2330,14 +2315,6 @@ button, input, select, textarea {
   padding: 8px;
 }
 
-.mobile-nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--color-text);
-  margin: 5px 0;
-  transition: 0.3s;
-}
 
 /* =========================
    HERO PANEL
@@ -5515,13 +5492,6 @@ body.no-scroll .site-footer {
     cursor: pointer;
   }
 
-  .mobile-nav-toggle span {
-    width: 28px;
-    height: 3px;
-    background: #1e293b;
-    border-radius: 999px;
-  }
-
   .nav-links {
     display: none;
   }
@@ -5636,13 +5606,6 @@ body.no-scroll .site-footer {
     cursor: pointer;
   }
 
-  .mobile-nav-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #15324a; /* strong visible color */
-    border-radius: 999px;
-  }
-
   .nav-links {
     display: none;
   }
@@ -5673,5 +5636,18 @@ body.no-scroll .site-footer {
     border: none !important;
     cursor: pointer !important;
     z-index: 999999 !important;
+  }
+}
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 34px !important;
+    color: #15324a !important;
+    background: transparent !important;
+    border: none !important;
   }
 }
