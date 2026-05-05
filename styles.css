@@ -5551,7 +5551,7 @@ body.no-scroll .site-footer {
 /* Responsive optimizations for founder images */
 @media (max-width: 768px) {
   .founder-image {
-    width: 200px;
+    width: 250px;
     height: 200px;
   }
   
@@ -5559,14 +5559,13 @@ body.no-scroll .site-footer {
     /* Maintain natural clarity on smaller screens */
     image-rendering: auto;
     filter: none;
-    -webkit-filter: none;
   }
 }
 
 @media (max-width: 480px) {
   .founder-image {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 200px;
   }
 }
 
