@@ -121,7 +121,7 @@
           <h3>Requirements</h3>
           <ul class="career-list">
             <li>Caregivers must have reliable transportation</li>
-            <li>Valid driver’s license</li>
+            <li>Valid driver’s license and active auto insurance</li>
             <li>Strong communication skills</li>
             <li>Compassionate and dependable personality</li>
             <li>Ability to pass a background check</li>
@@ -169,7 +169,7 @@
 
           <div class="form-row">
             <div class="form-field">
-              <label class="required-label">Do you have reliable transportation? <span class="required">*</span></label>
+              <label class="required-label">Do you have reliable transportation, a valid driver’s license, and current auto insurance? <span class="required">*</span></label>
               <select name="transportation" id="transportation" required>
                 <option value="">Select an option</option>
                 <option value="yes">Yes</option>
@@ -177,8 +177,16 @@
               </select>
             </div>
             <div class="form-field">
-              <label class="required-label">Are you willing to meet requirements? <span class="required">*</span></label>
-              <select name="outings" id="outings" required>
+              <label class="required-label">Are you willing to complete a background check and onboarding requirements? <span class="required">*</span></label>
+              <select name="willingOutings" id="willingOutings" required>
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="required-label">Are you comfortable accompanying clients on outings, errands, and appointments? <span class="required">*</span></label>
+              <select name="driversLicense" id="driversLicense" required>
                 <option value="">Select an option</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
