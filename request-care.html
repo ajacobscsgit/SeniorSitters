@@ -16,7 +16,7 @@
     <div class="page-wrapper">
       <nav class="site-header">
         <a href="index.html" class="brand">
-          <img src="assets/logos/logo.png" alt="SeniorSitters Logo" class="brand-logo">
+          <img src="assets/logos/logo.png" srcset="assets/logos/logo.png 2x" alt="SeniorSitters Logo" class="brand-logo">
         </a>
         <div class="nav-links" id="navLinks">
           <a href="index.html" class="nav-link">Home</a>
@@ -56,7 +56,8 @@
       <div class="contact-grid">
         <!-- Contact Form -->
         <div class="contact-form-card">
-          <h2>Request Care</h2>
+          <h2>Request Care Information</h2>
+          <p style="color: var(--color-muted); margin-bottom: 20px; font-size: 0.95rem;">Tell us about your companion care needs. We'll review your information and contact you to discuss if SeniorSitters is the right fit.</p>
           <form id="requestCareForm">
             <!-- Full Name -->
             <div class="form-field">
@@ -78,7 +79,7 @@
 
             <!-- Who is care for -->
             <div class="form-field">
-              <label class="required-label">Who is care for <span class="required">*</span></label>
+              <label class="required-label">Who is care for? <span class="required">*</span></label>
               <input type="text" name="careFor" id="careFor" placeholder="e.g., My mother, My father, Myself" required>
             </div>
 
@@ -88,24 +89,51 @@
               <input type="text" name="location" id="location" placeholder="e.g., Cleveland, OH 44101" required>
             </div>
 
-            <!-- Preferred schedule -->
+            <!-- Best time to contact -->
             <div class="form-field">
-              <label class="required-label">Preferred Schedule <span class="required">*</span></label>
-              <div class="schedule-fields">
-                <select name="days" id="days" required>
-                  <option value="">Select days</option>
-                  <option value="weekdays">Weekdays (Mon-Fri)</option>
-                  <option value="weekends">Weekends (Sat-Sun)</option>
-                  <option value="daily">Daily</option>
-                  <option value="custom">Custom schedule</option>
-                </select>
-                <input type="text" name="time" id="time" placeholder="e.g., Mornings 9-11am, Afternoons 2-4pm" required>
-              </div>
+              <label class="required-label">Best time to contact <span class="required">*</span></label>
+              <select name="bestTimeToContact" id="bestTimeToContact" required>
+                <option value="">Select preferred time</option>
+                <option value="morning">Morning (9am - 12pm)</option>
+                <option value="afternoon">Afternoon (12pm - 5pm)</option>
+                <option value="evening">Evening (5pm - 8pm)</option>
+              </select>
+            </div>
+
+            <!-- When would you like care to start -->
+            <div class="form-field">
+              <label class="required-label">When would you like care to start? <span class="required">*</span></label>
+              <select name="startTimeframe" id="startTimeframe" required>
+                <option value="">Select timeframe</option>
+                <option value="asap">As soon as possible</option>
+                <option value="1-2 weeks">Within 1-2 weeks</option>
+                <option value="2-4 weeks">Within 2-4 weeks</option>
+                <option value="1-2 months">Within 1-2 months</option>
+                <option value="just exploring">Just exploring options</option>
+              </select>
+            </div>
+
+            <!-- Preferred days -->
+            <div class="form-field">
+              <label class="required-label">Preferred days <span class="required">*</span></label>
+              <select name="days" id="days" required>
+                <option value="">Select days</option>
+                <option value="weekdays">Weekdays (Mon-Fri)</option>
+                <option value="weekends">Weekends (Sat-Sun)</option>
+                <option value="daily">Daily</option>
+                <option value="custom">Custom schedule</option>
+              </select>
+            </div>
+
+            <!-- Preferred time window -->
+            <div class="form-field">
+              <label class="required-label">Preferred time window <span class="required">*</span></label>
+              <input type="text" name="time" id="time" placeholder="e.g., Mornings 9-11am, Afternoons 2-4pm" required>
             </div>
 
             <!-- Type of support needed -->
             <div class="form-field">
-              <label class="required-label">Type of Support Needed <span class="required">*</span></label>
+              <label class="required-label">Type of support needed <span class="required">*</span></label>
               <div class="checkbox-group">
                 <label class="checkbox-label">
                   <input type="checkbox" name="support[]" value="companion"> Companion Visits
@@ -130,32 +158,61 @@
 
             <!-- Level of support needed -->
             <div class="form-field">
-              <label class="required-label">
-                Level of Support Needed (select one) <span class="required">*</span>
-              </label>
-
+              <label class="required-label">Level of support needed (select one) <span class="required">*</span></label>
               <div class="checkbox-group">
                 <label class="checkbox-label">
                   <input type="checkbox" name="level" value="Light support">
-                  <span>Light support (companionship, meal prep, errands)</span>
+                  <span>Light support: companionship, meal prep, errands</span>
                 </label>
-
                 <label class="checkbox-label">
                   <input type="checkbox" name="level" value="Moderate support">
-                  <span>Moderate support (daily activities, mobility)</span>
+                  <span>Moderate support: daily routines, reminders, mobility awareness</span>
                 </label>
-
                 <label class="checkbox-label">
-                  <input type="checkbox" name="level" value="Extensive support">
-                  <span>Extensive support (non-medical hands-on care, medication reminders)</span>
+                  <input type="checkbox" name="level" value="Higher support">
+                  <span>Higher support needs: frequent reminders, close supervision, more involved daily support</span>
                 </label>
               </div>
             </div>
 
-            <!-- Notes -->
+            <!-- Mobility / safety notes -->
             <div class="form-field">
-              <label>Notes</label>
-              <textarea name="notes" id="notes" rows="4" placeholder="Any additional details about your care needs..."></textarea>
+              <label>Mobility / safety notes</label>
+              <textarea name="mobilityNotes" id="mobilityNotes" rows="3" placeholder="Any mobility concerns, walking aids, or safety considerations..."></textarea>
+            </div>
+
+            <!-- Does the client live alone -->
+            <div class="form-field">
+              <label>Does the client live alone?</label>
+              <select name="livesAlone" id="livesAlone">
+                <option value="">Select option</option>
+                <option value="yes">Yes, lives alone</option>
+                <option value="no">No, lives with others</option>
+                <option value="sometimes">Sometimes alone</option>
+              </select>
+            </div>
+
+            <!-- Pets in the home -->
+            <div class="form-field">
+              <label>Pets in the home?</label>
+              <select name="petsInHome" id="petsInHome">
+                <option value="">Select option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="considering">Considering pet care</option>
+              </select>
+            </div>
+
+            <!-- Main concern or goal -->
+            <div class="form-field">
+              <label>Main concern or goal</label>
+              <textarea name="mainConcern" id="mainConcern" rows="3" placeholder="What's the primary reason you're seeking companion care?"></textarea>
+            </div>
+
+            <!-- Additional notes -->
+            <div class="form-field">
+              <label>Additional notes</label>
+              <textarea name="notes" id="notes" rows="3" placeholder="Any other details that would help us understand your needs..."></textarea>
             </div>
 
             <!-- Legal Agreement Checkbox -->
@@ -175,7 +232,7 @@
           <!-- Success Message -->
           <div class="form-success" style="display: none;">
             <h3>Thank You!</h3>
-            <p>We've received your request and will be in touch within 24 hours to discuss your care needs and confirm the best plan for your family.</p>
+            <p>We've received your care request and will be in touch within 24 hours to discuss your needs and determine if SeniorSitters companion care is the right fit for your family.</p>
           </div>
         </div>
 
@@ -259,6 +316,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
 </body>
 </html>

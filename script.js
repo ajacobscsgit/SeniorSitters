@@ -3,6 +3,12 @@
  * Form behavior and interactions
  */
 
+// Supabase Configuration
+const SUPABASE_URL = "https://zyoozdgdiwopgwstiugu.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5b296ZGdkaXdvcGd3c3RpdWd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMzAyNDMsImV4cCI6MjA5MzYwNjI0M30.T32uwCGaZo1YkqzIaRN_7eyjzPshXdmcHPFDdM7MH7w";
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize mobile navigation
   initMobileNav();
@@ -252,9 +258,32 @@ function showSuccess(form) {
 
 async function submitCareerApplication(data, submitButton, form) {
   try {
-    const formData = new FormData();
+    // Prepare data for Supabase
+    const supabaseData = {
+      full_name: data.fullName || "",
+      phone: data.phone || "",
+      email: data.email || "",
+      city: data.location || "",
+      availability: data.availability || "",
+      transportation: data.transportation === "yes",
+      willing_outings: data.willingOutings === "yes",
+      experience: data.driversLicense === "yes",
+      why_work_with_seniors: data.whyJoin || "",
+      status: "new"
+    };
 
-    // Add all fields
+    // Insert into Supabase
+    const { error: supabaseError } = await supabaseClient
+      .from("applications")
+      .insert([supabaseData]);
+
+    if (supabaseError) {
+      console.error("Supabase error:", supabaseError);
+      // Continue with Google Sheets submission even if Supabase fails
+    }
+
+    // Also submit to Google Apps Script (for legacy support)
+    const formData = new FormData();
     Object.keys(data).forEach(key => {
       formData.append(key, data[key]);
     });
@@ -349,23 +378,69 @@ if (form) {
       submitBtn.textContent = "Requesting...";
     }
 
-    const data = new FormData();
-
-    data.append("name", document.getElementById("name").value);
-    data.append("phone", document.getElementById("phone").value);
-    data.append("email", document.getElementById("email").value);
-    data.append("careFor", document.getElementById("careFor").value);
-    data.append("cityZip", document.getElementById("location").value);
-
     const days = document.getElementById("days").value;
     const time = document.getElementById("time").value;
-    data.append("schedule", `${days} - ${time}`);
-
-    data.append("supportType", supportTypes.join(", "));
-    data.append("levelOfCare", levels.join(", "));
-    data.append("notes", document.getElementById("notes").value);
 
     try {
+      // Prepare data for Supabase
+      const supabaseData = {
+        requester_name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        care_for: document.getElementById("careFor").value,
+        location: document.getElementById("location").value,
+        best_time_to_contact: document.getElementById("bestTimeToContact").value,
+        start_timeframe: document.getElementById("startTimeframe").value,
+        preferred_days: days,
+        preferred_time: time,
+        support_types: supportTypes.join(", "),
+        level_of_care: levels.join(", "),
+        mobility_notes: document.getElementById("mobilityNotes").value,
+        lives_alone: document.getElementById("livesAlone").value,
+        pets_in_home: document.getElementById("petsInHome").value,
+        main_concern: document.getElementById("mainConcern").value,
+        notes: document.getElementById("notes").value,
+        status: "new"
+      };
+
+      // Insert into Supabase
+      const { error: supabaseError } = await supabaseClient
+        .from("care_requests")
+        .insert([supabaseData]);
+
+      if (supabaseError) {
+        console.error("Supabase error:", supabaseError);
+        // Continue with Google Sheets submission even if Supabase fails
+      }
+
+      // Also submit to Google Apps Script (for legacy support)
+      const data = new FormData();
+      // New field names for care_requests mapping
+      data.append("requester_name", document.getElementById("name").value);
+      data.append("phone", document.getElementById("phone").value);
+      data.append("email", document.getElementById("email").value);
+      data.append("care_for", document.getElementById("careFor").value);
+      data.append("location", document.getElementById("location").value);
+      data.append("best_time_to_contact", document.getElementById("bestTimeToContact").value);
+      data.append("start_timeframe", document.getElementById("startTimeframe").value);
+      data.append("preferred_days", days);
+      data.append("preferred_time", time);
+      data.append("support_types", supportTypes.join(", "));
+      data.append("level_of_care", levels.join(", "));
+      data.append("mobility_notes", document.getElementById("mobilityNotes").value);
+      data.append("lives_alone", document.getElementById("livesAlone").value);
+      data.append("pets_in_home", document.getElementById("petsInHome").value);
+      data.append("main_concern", document.getElementById("mainConcern").value);
+      data.append("notes", document.getElementById("notes").value);
+      data.append("status", "new");
+      // Legacy field names for existing Apps Script compatibility
+      data.append("name", document.getElementById("name").value);
+      data.append("careFor", document.getElementById("careFor").value);
+      data.append("cityZip", document.getElementById("location").value);
+      data.append("supportType", supportTypes.join(", "));
+      data.append("levelOfCare", levels.join(", "));
+      data.append("schedule", `${days} - ${time}`);
+
       await fetch("https://script.google.com/macros/s/AKfycbxZVW6aVvPIHrl1qqzNExa3liFEs7xsmvbWkDgq_GU5zsAjpUFzr3SWP0_Q63av-G1p/exec", {
         method: "POST",
         mode: "no-cors",
@@ -404,7 +479,7 @@ if (contactForm) {
       return;
     }
 
-    // Get values (match your HTML exactly) :contentReference[oaicite:0]{index=0}
+    // Get values (match your HTML exactly)
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
@@ -421,13 +496,33 @@ if (contactForm) {
       submitBtn.textContent = "Sending...";
     }
 
-    const data = new FormData();
-    data.append("name", name);
-    data.append("email", email);
-    data.append("phone", phone);
-    data.append("message", message);
-
     try {
+      // Prepare data for Supabase
+      const supabaseData = {
+        name: name,
+        email: email,
+        phone: phone,
+        message: message,
+        status: "new"
+      };
+
+      // Insert into Supabase
+      const { error: supabaseError } = await supabaseClient
+        .from("contacts")
+        .insert([supabaseData]);
+
+      if (supabaseError) {
+        console.error("Supabase error:", supabaseError);
+        // Continue with Google Sheets submission even if Supabase fails
+      }
+
+      // Also submit to Google Apps Script (for legacy support)
+      const data = new FormData();
+      data.append("name", name);
+      data.append("email", email);
+      data.append("phone", phone);
+      data.append("message", message);
+
       await fetch("https://script.google.com/macros/s/AKfycbwUzOH8N9YDhSLIUf_AVUvBtDe5ARAndTBu0TQ5wMxpgMSAkPdEp9Sjz41F0W8kuedw/exec", {
         method: "POST",
         mode: "no-cors",
