@@ -259,6 +259,9 @@ function showSuccess(form) {
 async function submitCareerApplication(data, submitButton, form) {
   try {
     // Prepare data for Supabase
+    // Note: form field names don't match the questions well:
+    // - willingOutings = background check question
+    // - driversLicense = outings/appointments question
     const supabaseData = {
       full_name: data.fullName || "",
       phone: data.phone || "",
@@ -266,8 +269,8 @@ async function submitCareerApplication(data, submitButton, form) {
       city: data.location || "",
       availability: data.availability || "",
       transportation: data.transportation === "yes",
-      willing_outings: data.willingOutings === "yes",
-      experience: data.driversLicense === "yes",
+      willing_outings: data.driversLicense === "yes",  // driversLicense field asks about outings
+      experience: data.experience || "",  // Experience textarea
       why_work_with_seniors: data.whyJoin || "",
       status: "new"
     };
